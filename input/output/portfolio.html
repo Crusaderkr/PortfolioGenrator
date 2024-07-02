@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Name</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="porfolio.css">
+    <link rel='icon' href='favicon.ico' type='image/x-icon'/>
+    <link href="//db.onlinewebfonts.com/c/bd317adf74e5e7e564eb61ce9926cc6d?family=Gotham" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/9a2bc11be56851dde98c1b49302cc21a?family=Gotham+Medium" rel="stylesheet" type="text/css"/>
+    <link href="//db.onlinewebfonts.com/c/0923ee644c97a87d70269aa80a6f1e79?family=The+Historia+Demo" rel="stylesheet" type="text/css"/>
+    <meta name="google-site-verification" content="9P7lBLkCpxEcZAig0uq5LQzN-YUIhlLA37V1Gj3avcg" />
+</head>
+
+<body>
+    <header>
+        <div class="left-circ">
+            <img src="images/Group 1953.svg" alt="">
+        </div>
+        <div class="circle-img">
+            <img src="images/Group 1951.svg" alt="">
+        </div>
+        <div class="menu-toggler">
+            <div class="bar half start"></div>
+            <div class="bar"></div>
+            <div class="bar half end"></div>
+        </div>
+        <nav class="top-nav">
+            <ul class="nav-list">
+                <li>
+                    <a href="portfolio.html" class="nav-link">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li>
+                    <a href="#services" class="nav-link">Achievements</a>
+                </li>
+                <li>
+                    <a href="#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="landing-text">
+            <h1 >Portfolio</h1>
+            <div class="scrolldown">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="profile-img">
+                <img src="images/profileimg.jpg" id="profile-image" data-aos="fade-up" data-aos-delay="300ms">
+            </div>
+            <div class="skills-img">
+                <img src="images/blackball.svg" alt="">
+            </div>
+            <div class="about-details" data-aos="fade-up" data-aos-delay="300ms">
+                <div class="about-heading">
+                    <h1>About</h1>
+                    <h6>Myself</h6>
+                </div>
+                <br>
+                <h3 id="profile-name">Hi! This is Your Name.</h3>
+                <br>
+                <p id="profile-intro">
+                    Short description About Yourself.
+                    <br>
+                    <br>
+                </p>
+                <br>
+                <address>Contact me here <a href="mailto:yourmail@gmail.com" id="profile-email">yourmail@gmail.com</a></address>
+                <a href="" id="profile-resume" class="cta">Checkout my Resume</a>
+                <div class="social-media">
+                    <ul class="nav-list" id="social-links">
+                        <li>
+                            <a href="" class="icon-link" id="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-img">
+                <img src="images/Rectangle 5651.svg" alt="">
+            </div>
+            <div class="section-heading">
+                <h1>Achievements</h1>
+                <h6>Some honourable mentions</h6>
+            </div>
+            <div class="my-skills" id="achievements-list" data-aos="fade-right" data-aos-delay="100ms">
+                <!-- Achievements will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="porfolio">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Portfolio</h1>
+                <h6>Some of my recent work</h6>
+            </div>
+            <div id="portfolio-list">
+                <!-- Portfolio items will be dynamically added here -->
+            </div>
+            <div class="experience-img">
+                <img src="images/Group 1949.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-heading">
+                <h1>Experience</h1>
+                <h6>Some of my works</h6>
+            </div>
+            <div class="timeline" id="experience-list">
+                <!-- Experience items will be dynamically added here -->
+            </div>
+            <div class="contact-img">
+                <img src="images/Group 1956.svg" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="contac" id="contac">
+        <div class="section-heading" style="font-size: 50px;" >
+            <a href="contact.html" class="con" target="_blank" style="text-shadow: 0px 0px 50px #ffffff">Contact us</a>
+        </div>
+    </section>
+
+    <footer class="copyright">
+        <div class="up" id="up">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <p>&copy; 2024 Portfolio by Kapil & Aryan</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="portfolio.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+
+</html>

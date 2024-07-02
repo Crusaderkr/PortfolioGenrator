@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <section id="profile">
+        <h2>Profile</h2>
+        <form id="profile-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <textarea id="introduction" placeholder="Introduction" required></textarea>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="url" id="linkedin" placeholder="LinkedIn URL" required>
+            <label> Image
+            <input type="file" id="profile-image" accept="image/*" required>
+            </label>
+            <label>Resume
+            <input type="file" id="resume" accept=".pdf" required>
+            </label>
+            <button type="submit">Save Profile</button>
+        </form>
+        <div id="profile-details"></div>
+    </section>
+
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <form id="achievement-form">
+            <input type="text" id="achievement-title" placeholder="Achievement Title" required>
+            <textarea id="achievement-details" placeholder="Details about Achievement" required></textarea>
+            <button type="submit">Add Achievement</button>
+        </form>
+        <div id="achievements-list"></div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <form id="project-form">
+            <input type="text" id="project-title" placeholder="Project Title" required>
+            <textarea id="project-details" placeholder="Details about Project" required></textarea>
+            <button type="submit">Add Project</button>
+        </form>
+        <div id="projects-list"></div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <form id="experience-form">
+            <input type="text" id="experience-title" placeholder="Experience Title" required>
+            <textarea id="experience-details" placeholder="Details about Experience" required></textarea>
+            <button type="submit">Add Experience</button>
+        </form>
+        <div id="experience-list"></div>
+    </section>
+
+    <button id="upload-button">Upload and View Portfolio</button>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
