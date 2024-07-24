@@ -1,6 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
+    function getPortfolioDataFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const data = urlParams.get('data');
+        if (data) {
+            try {
+                return JSON.parse(decodeURIComponent(data));
+            } catch (error) {
+                console.error('Error parsing data from URL:', error);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    const urlPortfolioData = getPortfolioDataFromURL();
+
     function displayProfileData() {
-        const profileData = JSON.parse(localStorage.getItem("profile"));
+        const profileData = urlPortfolioData?.profile || JSON.parse(localStorage.getItem("profile"));
         console.log("Profile Data:", profileData);
         if (profileData) {
             if (document.getElementById("profile-name")) {
@@ -23,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("profile-resume").href = profileData.resumeData || "";
             }
         } else {
-            console.log("Profile data not found in localStorage.");
+            console.log("Profile data not found.");
         }
     }
 
     function displayAchievementsData() {
-        const achievementsData = JSON.parse(localStorage.getItem("achievements"));
+        const achievementsData = urlPortfolioData?.achievements || JSON.parse(localStorage.getItem("achievements"));
         console.log("Achievements Data:", achievementsData);
         if (achievementsData) {
             const achievementsList = document.getElementById("achievements-list");
@@ -51,16 +67,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         } else {
-            console.log("Achievements data not found in localStorage.");
+            console.log("Achievements data not found.");
         }
     }
 
     function displayPortfolioData() {
-        const portfolioData = JSON.parse(localStorage.getItem("projects"));
+        const portfolioData = urlPortfolioData?.projects || JSON.parse(localStorage.getItem("projects"));
         console.log("Portfolio Data:", portfolioData);
         if (portfolioData) {
-            
-            
             const portfolioList = document.getElementById("portfolio-list");
             if (portfolioList) {
                 portfolioList.innerHTML = "";  // Clear existing content
@@ -83,12 +97,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         } else {
-            console.log("Portfolio data not found in localStorage.");
+            console.log("Portfolio data not found.");
         }
     }
 
     function displayExperienceData() {
-        const experienceData = JSON.parse(localStorage.getItem("experiences"));
+        const experienceData = urlPortfolioData?.experiences || JSON.parse(localStorage.getItem("experiences"));
         console.log("Experience Data:", experienceData);
         if (experienceData) {
             const experienceList = document.getElementById("experience-list");
@@ -110,9 +124,44 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         } else {
-            console.log("Experience data not found in localStorage.");
+            console.log("Experience data not found.");
         }
     }
+    function copyToClipboard(data) {
+        navigator.clipboard.writeText(data).then(() => {
+            alert("Link copied 🧙‍♂️");
+        }).catch(err => {
+            console.error('Error copying data to clipboard: better luck next time🥺', err);
+        });
+    }
+
+    function generateShareableLink() {
+        const profileData = JSON.parse(localStorage.getItem("profile"));
+        const achievementsData = JSON.parse(localStorage.getItem("achievements"));
+        const portfolioData = JSON.parse(localStorage.getItem("projects"));
+        const experienceData = JSON.parse(localStorage.getItem("experiences"));
+
+        const combinedData = {
+            profile: profileData,
+            achievements: achievementsData,
+            projects: portfolioData,
+            experiences: experienceData
+        };
+
+        const encodedData = encodeURIComponent(JSON.stringify(combinedData));
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareableLink = `${baseUrl}?data=${encodedData}`;
+        return shareableLink;
+    }
+
+    document.getElementById('generate-shareable-link').addEventListener('click', function() {
+        const shareableLink = generateShareableLink();
+
+        console.log('Shareable Link:', shareableLink);
+        //fuction call for copying link directly on click to users clipboard
+        copyToClipboard(shareableLink);
+    
+    });
 
     // Call the functions to display data
     displayProfileData();
@@ -150,16 +199,7 @@ $(document).ready(function () {
         duration: 1800
     });
 });
+
 const h1 = document.createElement('h1');
 h1.textContent = 'Projects';
 section-heading.appendChild(h1);
-
-
-
-
-
-
-
-
-
-
